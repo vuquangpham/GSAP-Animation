@@ -14,8 +14,8 @@ window.addEventListener('load', () => {
             trigger: document.querySelector('.wrapper'),
             scrub: true,
             markers: true,
-            start: '+=200px',
-            end: '+=350px',
+            start: '0',
+            end: '+=300px',
         },
         defaults: {
             ease: "linear"

@@ -10,10 +10,10 @@ html {
 
 body {
     box-sizing:border-box; font-family:"Inter", sans-serif;
-    min-height:400vh; display:flex; justify-content:center; background-color:khaki;
+    min-height:300vh; display:flex; flex-wrap:wrap; justify-content:center;
 }
 
-.wrapper {height:130vh; background-color:yellow; display:flex; align-items:flex-end; margin-top:200px; width:1180px;}
+.wrapper {height:115vh; display:flex; align-items:flex-end; width:1180px; margin:350px auto 0;}
 .container {width:938px; margin:0 auto; min-height:432px; border-radius:60px;}
 
 .left {padding:40px; font-size:30px;}
