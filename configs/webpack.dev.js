@@ -49,26 +49,6 @@ module.exports = merge(common, {
                     "sass-loader",
                 ],
             },
-            {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: "html-loader",
-                    },
-                ],
-            },
-            {
-                test: /\.(jpe?g|png|gif|svg)$/,
-                type: "asset/resource",
-                generator: {
-                    filename: "img/[hash][ext]",
-                },
-            },
-            // Fonts and SVGs: Inline files
-            {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-                type: 'asset/inline'
-            },
         ],
     },
     plugins: [

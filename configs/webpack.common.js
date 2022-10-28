@@ -11,6 +11,30 @@ module.exports = {
             assets: path.resolve(__dirname, '../', 'public', 'assets'),
         },
     },
+    module: {
+        rules: [
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: "html-loader",
+                    },
+                ],
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/,
+                type: "asset/resource",
+                generator: {
+                    filename: "img/[hash][ext]",
+                },
+            },
+            // Fonts and SVGs: Inline files
+            {
+                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+                type: 'asset/inline'
+            },
+        ]
+    },
     plugins: [
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
