@@ -30,7 +30,6 @@ body {
 .end-state .box {overflow:hidden}
 
 .box {border-radius:11px;}
-.box > * {transform:rotateZ(360deg);}
 
 .box:nth-child(1) {width:274px; height:114px; top:0; left:0;}
 .box:nth-child(2) {width:274px; height:170px; top:100px; left:0;}
