@@ -19,7 +19,7 @@ body {
 }
 .wrapper {height:150vh; background-color:yellow; display:flex; align-items:flex-end;}
 .container {
-    width:48.9vw; min-height:432px; border-radius:60px;
+    width:938px; min-height:432px; border-radius:60px;
 }
 .left {
     padding:40px; font-size:30px;
