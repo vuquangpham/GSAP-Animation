@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
         scrollTrigger: {
             trigger: document.querySelector('.wrapper'),
             scrub: true,
-            markers: true,
+            // markers: true,
             start: '-=200px',
             end: '+=500px',
             onUpdate: self => console.log(self.progress)
