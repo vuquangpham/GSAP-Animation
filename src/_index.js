@@ -14,8 +14,9 @@ window.addEventListener('load', () => {
             trigger: document.querySelector('.wrapper'),
             scrub: true,
             markers: true,
-            start: '0',
-            end: '+=300px',
+            start: '-=200px',
+            end: '+=500px',
+            onUpdate: self => console.log(self.progress)
         },
         defaults: {
             ease: "linear"
@@ -25,20 +26,32 @@ window.addEventListener('load', () => {
         x: '0',
         y: '0',
         rotate: '0',
+        duration: 0.8
     });
 
-    tl.addLabel('delay', '-=0.15');
-    tl.to(images[0], {
-        height: `98px`,
-    }, 'delay');
     tl.to(images[3], {
+        duration: 0.4,
         width: `193px`,
         height: '290px',
-        borderRadius: '0 60px 0 0',
-    }, 'delay');
+    }, '0.4');
     tl.to(images[4], {
+        duration: 0.4,
         width: `193px`,
         height: '136px',
+    }, '0.4');
+
+    tl.addLabel('delay', '0.6');
+    tl.to(images[0], {
+        duration: 0.1,
+        height: `98px`,
+    }, 'delay+=0.1');
+
+    tl.to(images[3], {
+        duration: 0.15,
+        borderRadius: '0 60px 0 0',
+    }, 'delay-=0.05');
+    tl.to(images[4], {
+        duration: 0.15,
         borderRadius: '0 0 60px 0',
-    }, 'delay');
+    }, 'delay-=0.05');
 });
