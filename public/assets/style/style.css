@@ -10,29 +10,30 @@ html {
 
 body {
     box-sizing:border-box; font-family:"Inter", sans-serif;
-    min-height:400vh; display:flex; justify-content:center;
+    min-height:400vh; display:flex; justify-content:center; background-color:khaki;
 }
 
-.wrapper {height:150vh; background-color:yellow; display:flex; align-items:flex-end; margin-top:500px;}
-.container {width:938px; min-height:432px; border-radius:60px;}
+.wrapper {height:130vh; background-color:yellow; display:flex; align-items:flex-end; margin-top:200px; width:1180px;}
+.container {width:938px; margin:0 auto; min-height:432px; border-radius:60px;}
 
 .left {padding:40px; font-size:30px;}
 .right {position:relative;}
 
-.right .box {position:absolute; transition:all .3s;}
+.right .box {position:absolute; transition:none;}
 .end-state .box {overflow:hidden}
 
-.box {border-radius:11px; box-shadow:rgb(0 0 0 / 40%) 0px 48.2927px 100px}
+.box {border-radius:11px; box-shadow:rgb(0 0 0 / 40%) 0 48px 100px}
 .box img {width:100%; height:100%;}
 
 .box:nth-child(1) {width:270px; height:210px; top:0; left:0; z-index:1; display:flex; align-items:flex-end;}
+.box:nth-child(1) img {width:270px; height:210px;}
 .box:nth-child(2) {width:270px; height:186px; bottom:142px; left:0; z-index:3;}
 .box:nth-child(3) {width:270px; height:136px; bottom:0; left:0; z-index:5;}
 .box:nth-child(4) {width:270px; height:360px; top:0; right:0; z-index:2;}
 .box:nth-child(5) {width:270px; height:220px; bottom:0; right:0; z-index:4;}
 
 .end-state .box:nth-child(1):not(.active) {transform:translateX(-50px) translateY(-270px) rotate(20deg);}
-.end-state .box:nth-child(2):not(.active) {transform:translateX(148.098px) translateY(-492.803px) rotate(-12.7229deg)}
+.end-state .box:nth-child(2):not(.active) {transform:translateX(148px) translateY(-492.803px) rotate(-12.7229deg)}
 .end-state .box:nth-child(3):not(.active) {transform:translateX(-51.9982px) translateY(-696.268px) rotate(-19.5737deg);}
 .end-state .box:nth-child(4):not(.active) {transform:translateX(-116.297px) translateY(-429.645px) rotate(-21.7442deg);}
 .end-state .box:nth-child(5):not(.active) {transform:translate(-129.6163px, -710.172px) rotate(16.4674deg);}
