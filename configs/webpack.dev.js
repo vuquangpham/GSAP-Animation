@@ -1,8 +1,6 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const common = require("./webpack.common");
 const {merge} = require("webpack-merge");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = merge(common, {
     mode: "development",
@@ -10,6 +8,7 @@ module.exports = merge(common, {
         filename: "app.[contenthash].js",
         path: path.resolve(__dirname, '../', "dist"),
     },
+    devtool: "inline-source-map",
     devServer: {
         static: {
             directory: path.resolve(__dirname, "dist"),
@@ -24,25 +23,12 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.css$/i,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ],
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.s[ac]ss$/i,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                ],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../', 'public', 'index.html'),
-            filename: 'index.html',
-        }),
-    ],
 });

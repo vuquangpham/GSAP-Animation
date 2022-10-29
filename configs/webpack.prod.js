@@ -1,15 +1,14 @@
 const path = require("path");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const common = require("./webpack.common");
 const {merge} = require("webpack-merge");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = merge(common, {
     mode: "production",
     output: {
-        filename: "app.[contenthash].js",
+        filename: "assets/js/[name].[contenthash].js",
         path: path.resolve(__dirname, '../', "dist"),
     },
     module: {
@@ -84,15 +83,18 @@ module.exports = merge(common, {
         ],
     },
     optimization: {
+        minimize: true,
         minimizer: [
             new CssMinimizerPlugin(),
+            new TerserPlugin(),
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../', 'public', 'index.html'),
-            filename: 'index.html',
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "assets/css/[name].[contenthash].css",
+            chunkFilename: "[id].css",
         }),
     ],
 });

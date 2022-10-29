@@ -1,9 +1,9 @@
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 
 module.exports = {
     entry: path.resolve(__dirname, '../', 'src', '_index.js'),
-    devtool: "inline-source-map",
     resolve: {
         extensions: ['.ts', '.js', '.json'],
         alias: {
@@ -25,22 +25,25 @@ module.exports = {
                 test: /\.(jpe?g|png|gif|svg)$/,
                 type: "asset/resource",
                 generator: {
-                    filename: "img/[hash][ext]",
+                    filename: "assets/images/[hash][ext]",
                 },
             },
             // Fonts and SVGs: Inline files
             {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-                type: 'asset/inline'
+                test: /\.(woff(2)?|eot|ttf|otf)$/,
+                type: 'asset/inline',
+                generator: {
+                    filename: "assets/fonts/[hash][ext]",
+                },
             },
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            // Options similar to the same options in webpackOptions.output
-            // both options are optional
-            filename: "css/[name].[contenthash].css",
-            chunkFilename: "[id].css",
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, '../', 'public', 'index.html'),
+            filename: 'index.html',
+            inject: 'head'
         }),
     ],
 };
